@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+import jwt from 'jsonwebtoken';
 
 async function keyCloak() {
   const temporaryCACNumber = '1234567890';

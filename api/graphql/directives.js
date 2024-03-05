@@ -1,12 +1,13 @@
+
 import { makeExecutableSchema } from '@graphql-tools/schema'
 import { getDirective, MapperKind, mapSchema } from '@graphql-tools/utils'
 import { defaultFieldResolver, GraphQLSchema } from 'graphql'
 
 function authDirective(
-    directiveName: string,
-    getUserFn: (token: string) => { hasRole: (role: string) => boolean }
+    directiveName,
+    getUserFn
   ) {
-    const typeDirectiveArgumentMaps: Record<string, any> = {}
+    const typeDirectiveArgumentMaps = {}
     return {
       authDirectiveTypeDefs: `directive @${directiveName}(
         requires: Role = ADMIN,
@@ -18,7 +19,7 @@ function authDirective(
         USER
         UNKNOWN
       }`,
-      authDirectiveTransformer: (schema: GraphQLSchema) =>
+      authDirectiveTransformer: (schema) =>
         mapSchema(schema, {
           [MapperKind.TYPE]: type => {
             const authDirective = getDirective(schema, type, directiveName)?.[0]
@@ -50,10 +51,10 @@ function authDirective(
     }
   }
    
-  function getUser(token: string) {
+  function getUser(token) {
     const roles = ['UNKNOWN', 'USER', 'REVIEWER', 'ADMIN']
     return {
-      hasRole: (role: string) => {
+      hasRole: (role) => {
         const tokenIndex = roles.indexOf(token)
         const roleIndex = roles.indexOf(role)
         return roleIndex >= 0 && tokenIndex >= roleIndex

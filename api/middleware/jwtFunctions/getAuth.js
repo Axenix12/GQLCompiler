@@ -1,10 +1,11 @@
 import jwt from 'jsonwebtoken';
 import { GraphQLError } from 'graphql';
-import { keyCloak } from './fakeKeycloak.ts';
-import { fetchRoleUsersByCACIdentifier } from './badPractice.ts';
-
+import { keyCloak } from './fakeKeycloak.js';
+import { fetchRoleUsersByCACIdentifier } from './badPractice.js';
+import dotenv from 'dotenv';
 
 export async function getAuths(pretoken) {
+  dotenv.config()
   const token = pretoken ?? (await keyCloak());
   try {
     jwt.verify(token, process.env.JWT_SECRET);
@@ -20,7 +21,7 @@ export async function getAuths(pretoken) {
   const permissions = jwt.decode(token);
   const user =
     permissions.Roles.SignedIn === 'False'
-      ? await fetchRoleUsersByCACIdentifier(permissions.Roles.CACNumber)
+      ? await fetchRoleUsersByCACIdentifier()
       : permissions;
   const newExpTime =
     Math.floor(Date.now() / 1000) + 60 * 15; // use env variable

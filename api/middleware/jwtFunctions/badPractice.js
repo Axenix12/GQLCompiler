@@ -1,10 +1,16 @@
 
 
-export async function fetchRoleUsersByCACIdentifier(cacIdentifier) {
-  const args = { CACIdentifier: cacIdentifier };
+export async function fetchRoleUsersByCACIdentifier() {
+  
 
   try {
-    const roleUsers = 'JSON object with ROLES' // This is where the JSON value with roles go
+    const roleUsers = {
+      id: '1',
+      firstName: 'J.K.',
+      lastName: 'Rowling',
+      books: ['1', '2', '3'],
+      SignedIn: 'True'
+    } // This is where the JSON value with roles go
     // const parsedJSONS = transformRecordset(roleUsers);
     return roleUsers;
   } catch (error) {

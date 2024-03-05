@@ -1,6 +1,6 @@
 import { authors, books, categories } from '../mock-data.js';
 
-export const resolvers = {
+const resolvers = {
   book: {
     author: ({ author: authorId }) =>
       authors.find(author => author.id === authorId),
@@ -64,3 +64,4 @@ export const resolvers = {
     }
   }
 };
+export {resolvers}

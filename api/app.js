@@ -1,14 +1,15 @@
 import express from 'express';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4'; // eslint-disable-line n/file-extension-in-import
+import dotenv from 'dotenv';
+import { context } from './middleware/context.js'
+import { typeDefs } from './graphql/typedefs.js'; 
+import { resolvers } from './graphql/resolvers.js';
 
-import { typeDefs } from './graphql/typedefs'; 
-import { resolvers } from './graphql/resolvers';
-import { context } from './middleware/context'
 
 
 async function startServer() {
-
+  dotenv.config()
   const app = express();
 
   const apollo = new ApolloServer({

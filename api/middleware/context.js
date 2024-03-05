@@ -1,4 +1,6 @@
-import { getAuths } from "./jwtFunctions/getAuth";
+import { getAuths } from "./jwtFunctions/getAuth.js";
+
+
 
 async function context({ req, res }) {
   if (req.body.operationName === 'IntrospectionQuery') {
@@ -8,7 +10,6 @@ async function context({ req, res }) {
   const token = req.headers.authorization || null;
   const { user, newToken } = await getAuths(token);
   res.set('authorization', newToken);
-  console.log(user.Roles.Roles);
   return { user };
 }
 

@@ -2,9 +2,9 @@ import express from 'express';
 import { ApolloServer } from '@apollo/server';
 import { expressMiddleware } from '@apollo/server/express4'; // eslint-disable-line n/file-extension-in-import
 
-import { typeDefs } from './graphql/typedefs.ts'; 
-import { resolvers } from './graphql/resolvers.ts';
-import { context } from './middleware/context.ts'
+import { typeDefs } from './graphql/typedefs'; 
+import { resolvers } from './graphql/resolvers';
+import { context } from './middleware/context'
 
 
 async function startServer() {

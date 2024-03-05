@@ -1,4 +1,4 @@
-const typedefs = `
+export const typeDefs = `
   type book {
     id: ID!
     title: String!

@@ -1,12 +1,13 @@
-const express = require('express');
-const { ApolloServer } = require('@apollo/server');
-const { expressMiddleware } = require('@apollo/server/express4');
-const { resolvers, typeDefs } = require('./graphql/index.ts');
-const { context } = require('./middleware/context.js');
+import express from 'express';
+import { ApolloServer } from '@apollo/server';
+import { expressMiddleware } from '@apollo/server/express4'; // eslint-disable-line n/file-extension-in-import
+
+import { typeDefs } from './graphql/typedefs.ts'; 
+import { resolvers } from './graphql/resolvers.ts';
+import { context } from './middleware/context.ts'
 
 
 async function startServer() {
-  dotenv.config();
 
   const app = express();
 

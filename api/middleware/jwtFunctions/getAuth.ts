@@ -1,7 +1,8 @@
 import jwt from 'jsonwebtoken';
 import { GraphQLError } from 'graphql';
-import { keyCloak } from './fakeKeycloak.js';
-import { fetchRoleUsersByCACIdentifier } from './badPractice.js';
+import { keyCloak } from './fakeKeycloak.ts';
+import { fetchRoleUsersByCACIdentifier } from './badPractice.ts';
+
 
 export async function getAuths(pretoken) {
   const token = pretoken ?? (await keyCloak());

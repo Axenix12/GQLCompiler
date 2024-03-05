@@ -2,6 +2,7 @@
   "name": "api",
   "version": "1.0.0",
   "description": "Practice",
+  "type": "module",
   "main": "app.js",
   "scripts": {
     "test": "node app.js",
@@ -11,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@apollo/server": "^4.10.0",
+    "@graphql-tools/schema": "^10.0.3",
     "cors": "^2.8.5",
     "express": "^4.18.3",
     "graphql": "^16.8.1",

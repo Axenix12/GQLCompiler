@@ -1,0 +1,21 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Practice",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js",
+    "dev": "node app.js"
+  },
+  "author": "Ryan Sylvester",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "^4.10.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.3",
+    "graphql": "^16.8.1",
+    "graphql-tools": "^9.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "lodash": "^4.17.21"
+  }
+}
